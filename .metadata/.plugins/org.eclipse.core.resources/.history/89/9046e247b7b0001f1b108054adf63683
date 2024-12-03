@@ -1,0 +1,23 @@
+package com.e_commercy.order.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Order {
+
+	private Long id;
+	private Long custormerId;
+	private LocalDateTime orderDate;
+	
+	
+	
+//	order_id
+//	customer_id
+//	order_date
+//	status
+//	total_amount
+//	payment_status
+//	shipping_address
+//	billing_address
+
+}

@@ -1,0 +1,8 @@
+package com.e_commercy.order.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Order {
+
+}

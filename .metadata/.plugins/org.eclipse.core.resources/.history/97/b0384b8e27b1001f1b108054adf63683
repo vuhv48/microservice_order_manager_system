@@ -1,0 +1,26 @@
+package com.e_commercy.order.viewmodel.order;
+
+import com.e_commercy.order.model.OrderItem;
+import com.e_commercy.order.model.Payment;
+import com.e_commercy.order.model.enumeration.OrderStatus;
+import lombok.Builder;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Set;
+
+@Builder
+public record OrderVM(
+        Long id,
+        Long custormerId,
+        LocalDateTime orderDate,
+        OrderStatus orderStatus,
+        BigDecimal totalPrice,
+        BigDecimal deliveryFee,
+        String shippingAddress,
+        String billingAddress,
+        Set<OrderItemVm> orderItems,
+        PaymentVm payment
+) {
+
+}

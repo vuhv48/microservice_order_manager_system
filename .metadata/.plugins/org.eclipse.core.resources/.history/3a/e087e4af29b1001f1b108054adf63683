@@ -1,0 +1,14 @@
+package com.e_commercy.order.repository;
+
+import com.e_commercy.order.model.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order,Long> {
+//    @Query("SELECT o FROM ORDERS o INNER JOIN PAYMENT p ON o.id = p.order_id")
+//    Optional<Order> findByPaymentId(String paymentId);
+}

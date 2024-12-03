@@ -1,0 +1,37 @@
+package com.e_commercy.order.model;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
+@Entity
+public class Order {
+
+	private Long id;
+	private Long custormerId;
+	private LocalDateTime orderDate;
+	@Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+	private BigDecimal totalPrice;
+	private BigDecimal deliveryFee;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
+    private OrderAddress shippingAddressId;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_address_id", referencedColumnName = "id")
+    private OrderAddress billingAddressId;
+	
+	
+	
+//	order_id
+//	customer_id
+//	order_date
+//	status
+//	total_amount
+//	payment_status
+//	shipping_address
+//	billing_address
+
+}

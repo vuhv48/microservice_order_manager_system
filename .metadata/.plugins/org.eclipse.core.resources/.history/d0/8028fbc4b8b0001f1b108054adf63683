@@ -1,0 +1,45 @@
+package com.e_commercy.order.model;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class Order {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private Long custormerId;
+	private LocalDateTime orderDate;
+	@Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+	private BigDecimal totalPrice;
+	private BigDecimal deliveryFee;
+
+    private String shippingAddress;
+
+    private String billingAddress;
+	
+	
+	
+//	order_id
+//	customer_id
+//	order_date
+//	status
+//	total_amount
+//	payment_status
+//	shipping_address
+//	billing_address
+
+}
