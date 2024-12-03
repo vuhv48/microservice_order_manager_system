@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.e_commercy.order.viewmodel.order.OrderVM&apos; to &apos;OrderVm&apos;&#x0A;- Original project: &apos;order&apos;&#x0A;- Original element: &apos;com.e_commercy.order.viewmodel.order.OrderVM&apos;&#x0A;- Renamed element: &apos;com.e_commercy.order.viewmodel.order.OrderVm&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;OrderVM&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.e_commercy.order.viewmodel.order{OrderVM.java[OrderVM" matchStrategy="1" name="OrderVm" qualified="false" references="true" similarDeclarations="false" stamp="1733196892096" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,20 @@
+package com.e_commercy.order.service;
+
+import com.e_commercy.order.model.Order;
+import com.e_commercy.order.viewmodel.order.OrderPostVm;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import com.e_commercy.order.viewmodel.order.OrderVm;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class OrderService {
+	
+	public OrderVm createOrder(OrderPostVm orderPostVm) {
+		Order order = Orde
+		return null;
+	}
+}
