@@ -512,3 +512,18 @@
 2024-12-03 17:04:23,950 [Worker-191: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
 2024-12-03 17:04:23,958 [Worker-191: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
 2024-12-03 17:04:23,959 [Worker-191: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/hoangvanvu/CodeForTutorial/Order_Management_System/order/src/test/resources
+2024-12-03 20:51:04,641 [Worker-205: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.e-commercy:order:0.0.1-SNAPSHOT @ /Users/hoangvanvu/CodeForTutorial/Order_Management_System/order/pom.xml.
+2024-12-03 20:51:04,926 [Worker-205: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-12-03 20:51:04,941 [Worker-205: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-12-03 20:51:04,944 [Worker-205: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/hoangvanvu/CodeForTutorial/Order_Management_System/order/src/test/resources
+2024-12-04 15:48:37,349 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-12-04 15:48:38,185 [Worker-1: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.e-commercy:customer:0.0.1-SNAPSHOT @ /Users/hoangvanvu/CodeForTutorial/Order_Management_System/customer/pom.xml.
+2024-12-04 15:48:38,569 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-12-04 15:48:38,580 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-12-04 15:48:38,583 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/hoangvanvu/CodeForTutorial/Order_Management_System/customer/src/test/resources
+2024-12-04 15:49:00,262 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-12-04 15:49:00,276 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-12-04 15:49:00,280 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/hoangvanvu/CodeForTutorial/Order_Management_System/order/src/test/resources
+2024-12-04 15:49:09,034 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-12-04 15:49:09,036 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-12-04 15:49:09,038 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/hoangvanvu/CodeForTutorial/Order_Management_System/order/src/test/resources
