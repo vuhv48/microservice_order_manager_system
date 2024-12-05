@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,6 +28,10 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
+
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.PERSIST})
+    @Builder.Default
+    private List<ProductCategory> productCategories = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
     private List<ProductImage> productImage;

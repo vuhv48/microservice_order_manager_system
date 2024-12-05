@@ -4,10 +4,7 @@ import com.e_commercy.product.model.Brand;
 import com.e_commercy.product.model.Media;
 import com.e_commercy.product.model.Product;
 import com.e_commercy.product.model.ProductImage;
-import com.e_commercy.product.repository.BrandRepository;
-import com.e_commercy.product.repository.MediaRepository;
-import com.e_commercy.product.repository.ProductImageRepository;
-import com.e_commercy.product.repository.ProductRepository;
+import com.e_commercy.product.repository.*;
 import com.e_commercy.product.viewmodel.product.ProductListGetVm;
 import com.e_commercy.product.viewmodel.product.ProductPostVm;
 import com.e_commercy.product.viewmodel.product.ProductVm;
@@ -36,6 +33,8 @@ public class ProductService {
     private final ProductImageRepository productImageRepository;
 
     private final MediaRepository mediaRepository;
+
+    private final ProductCategoryRepository productCategoryRepository;
 
     public ProductListGetVm getProductsWithFilter(int pageNo, int pageSize, String productName, String brandName) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
