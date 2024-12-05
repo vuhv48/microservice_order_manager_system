@@ -18,8 +18,7 @@ import java.io.IOException;
 public class MediaService {
     private final MediaRepository mediaRepository;
 
-    @PostMapping("/backoffice/upload")
-    public ResponseEntity<MediaVm> uploadMedia(@RequestParam("file") MultipartFile file) throws IOException {
+    public MediaVm uploadMedia(MultipartFile file) throws IOException {
         String fileName = file.getOriginalFilename();
         String filePath = "/path/to/save/media/" + fileName;
         File destFile = new File(filePath);
@@ -30,6 +29,6 @@ public class MediaService {
                 .fileType(file.getContentType())
                 .build();
         Media savedMedia = mediaRepository.save(media);
-        return ResponseEntity.ok(MediaVm.fromModel(savedMedia));
+        return MediaVm.fromModel(savedMedia);
     }
 }
