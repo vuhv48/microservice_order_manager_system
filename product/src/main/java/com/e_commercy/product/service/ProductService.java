@@ -71,7 +71,8 @@ public class ProductService {
         setProductBrand(productPostVm.brandId(), product);
 
         List<ProductImage> productImageList = setProductImages(productPostVm.mediaImageIds(), product);
-        ProductImage productImage = setThumbnailImage(productPostVm.thumbnailImageId(), product);
+        ProductImage productThumbnailImage = setThumbnailImage(productPostVm.thumbnailImageId(), product);
+        product.setThumbnailImage(productThumbnailImage);
 
         Product savedProduct = productRepository.saveAndFlush(product);
         productImageRepository.saveAllAndFlush(productImageList);
@@ -100,7 +101,6 @@ public class ProductService {
             ProductImage productImage = ProductImage.builder()
                     .product(product)
                     .media(media)
-                    .imageId(imageId)
                     .build();
             productImages.add(productImage);
         }
@@ -113,7 +113,7 @@ public class ProductService {
         return ProductImage.builder()
                 .product(product)
                 .media(media)
-                .imageId(thumbnailImageId)
+                .id(thumbnailImageId)
                 .build();
     }
 }

@@ -2,12 +2,14 @@ package com.e_commercy.product.controller;
 
 import com.e_commercy.product.service.ProductService;
 import com.e_commercy.product.viewmodel.product.ProductListGetVm;
+import com.e_commercy.product.viewmodel.product.ProductPostVm;
+import com.e_commercy.product.viewmodel.product.ProductVm;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,6 +25,12 @@ public class ProductController {
             @RequestParam(value = "brand-name", defaultValue = "", required = false) String brandName
     ){
         return ResponseEntity.ok(productService.getProductsWithFilter(pageNo, pageSize, productName, brandName));
+    }
+
+    @PostMapping("/backoffice/products")
+    public ResponseEntity<ProductVm> createProduct(@Valid @RequestBody ProductPostVm productPostVm){
+        ProductVm productVm = productService.createProduct(productPostVm);
+        return new ResponseEntity<>(productVm,HttpStatus.CREATED);
     }
 
 }
