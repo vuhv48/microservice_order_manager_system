@@ -4,10 +4,13 @@ import com.e_commercy.order.model.Order;
 import com.e_commercy.order.model.OrderItem;
 import com.e_commercy.order.model.Payment;
 import com.e_commercy.order.model.enumeration.OrderStatus;
+import com.e_commercy.order.proxy.ProductProxy;
 import com.e_commercy.order.repository.OrderItemRepository;
 import com.e_commercy.order.repository.OrderRepository;
 import com.e_commercy.order.repository.PaymentRepository;
 import com.e_commercy.order.viewmodel.order.*;
+import com.e_commercy.order.viewmodel.product.ProductQuantityPutVm;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,6 +35,8 @@ public class OrderService {
 	private final OrderItemRepository orderItemRepository;
 
 	private final PaymentRepository paymentRepository;
+	
+	private final ProductProxy productProxy;
 	
 	public OrderVm createOrder(OrderPostVm orderPostVm) {
 		Order order = Order.builder()
@@ -60,8 +66,14 @@ public class OrderService {
 				.paymentMethod(orderPostVm.payment().paymentMethod())
 				.build();
 		paymentRepository.save(payment);
+		
+		OrderVm orderVm = OrderVm.fromModel(order, orderItems, payment.getPaymentMethod());
+		List<ProductQuantityPutVm> productQuantityPutVms = orderVm.orderItemVms().stream()
+				.map(orderItemVm -> new ProductQuantityPutVm(orderItemVm.productId(), (long) orderItemVm.quantity()))
+				.collect(Collectors.toList());
 
-        return OrderVm.fromModel(order, orderItems, payment.getPaymentMethod());
+		productProxy.subtractProductQuantity(productQuantityPutVms);
+        return orderVm;
 	}
 
 	public OrderListVm getAllOrder(){

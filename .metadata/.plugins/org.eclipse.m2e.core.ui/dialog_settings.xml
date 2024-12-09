@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/hoangvanvu/CodeForTutorial/Order_Management_System/inventory"/>
+			<item value="/Users/hoangvanvu/CodeForTutorial/Order_Management_System/product"/>
 			<item value="/Users/hoangvanvu/CodeForTutorial/Order_Management_System/customer"/>
 			<item value="/Users/hoangvanvu/CodeForTutorial/Order_Management_System/order"/>
 		</list>
