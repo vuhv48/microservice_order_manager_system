@@ -21,7 +21,7 @@ http://localhost:8081/backoffice/stocks
     {
       "stockId": 9,
       "productId": 5,
-      "quantity": 50
+      "quantity": 10
     }
   ]
 }

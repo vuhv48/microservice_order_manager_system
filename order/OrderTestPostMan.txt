@@ -1,0 +1,23 @@
+http://localhost:8082/backoffice/orders
+
+
+{
+  "customerId": 1,
+  "totalPrice": 150.75,
+  "deliveryFee": 10.00,
+  "shippingAddress": "123 Street, City, Country",
+  "billingAddress": "456 Avenue, City, Country",
+  "orderItemPostVms": [
+    {
+      "productId": 5,
+      "productName": "Samsung Galaxy S23",
+      "quantity": 1,
+      "productPrice": 1200.50
+    }
+  ],
+  "payment": {
+    "id": 1,
+    "paymentMethod": "PAYPAL"
+
+  }
+}

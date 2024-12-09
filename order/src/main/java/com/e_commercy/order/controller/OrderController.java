@@ -22,7 +22,7 @@ public class OrderController {
     	return "hello";
     }
 
-    @PostMapping("/storefont/order")
+    @PostMapping("/backoffice/orders")
     public ResponseEntity<OrderVm> createOrder(@RequestBody OrderPostVm orderPostVm){
         OrderVm orderVm = orderService.createOrder(orderPostVm);
         return ResponseEntity.ok(orderVm);
