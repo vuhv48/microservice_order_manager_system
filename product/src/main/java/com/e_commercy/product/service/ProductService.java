@@ -5,9 +5,7 @@ import com.e_commercy.product.model.Media;
 import com.e_commercy.product.model.Product;
 import com.e_commercy.product.model.ProductImage;
 import com.e_commercy.product.repository.*;
-import com.e_commercy.product.viewmodel.product.ProductListGetVm;
-import com.e_commercy.product.viewmodel.product.ProductPostVm;
-import com.e_commercy.product.viewmodel.product.ProductVm;
+import com.e_commercy.product.viewmodel.product.*;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -20,6 +18,9 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -116,6 +117,51 @@ public class ProductService {
                 .id(thumbnailImageId)
                 .build();
     }
+    
+    public ProductVm getProductById(Long productId) {
+    	Product product = productRepository.getReferenceById(productId);
+    	return ProductVm.fromModel(product);
+    }
+
+    public void updateProductQuantity(List<ProductQuantityPostVm> productQuantityPostVms) {
+        List<Long> productIds = productQuantityPostVms.stream().map(ProductQuantityPostVm::productId).toList();
+        List<Product> products = productRepository.findAllById(productIds);
+        products.parallelStream().forEach(product -> {
+            Optional<ProductQuantityPostVm> productQuantityPostVmOptional = productQuantityPostVms.parallelStream()
+                    .filter(productPostVm -> product.getId().equals(productPostVm.productId()))
+                    .findFirst();
+            productQuantityPostVmOptional.ifPresent(productQuantityPostVm
+                    -> product.setStockQuantity(productQuantityPostVm.stockQuantity()));
+        });
+        productRepository.saveAll(products);
+    }
+
+    public void subtractStockQuantity(List<ProductQuantityPutVm> productQuantityPutVms) {
+        List<Long> productIds = productQuantityPutVms.stream()
+                .map(ProductQuantityPutVm::productId)
+                .collect(Collectors.toList());
+        List<Product> products = productRepository.findAllById(productIds);
+
+        Map<Long, Product> productMap = products.stream()
+                .collect(Collectors.toMap(Product::getId, product -> product));
+
+        productQuantityPutVms.forEach(productQuantityPutVm -> {
+            Product product = productMap.get(productQuantityPutVm.productId());
+
+            if (product == null) {
+                throw new IllegalArgumentException("Product not found for productId: " + productQuantityPutVm.productId());
+            }
+
+            if (productQuantityPutVm.stockQuantity() > product.getStockQuantity()) {
+                throw new IllegalArgumentException("Quantity in productQuantityPutVm cannot be greater than product quantity.");
+            }
+
+            product.setStockQuantity(product.getStockQuantity() - productQuantityPutVm.stockQuantity());
+        });
+
+        productRepository.saveAll(products);
+    }
+
 }
 
 

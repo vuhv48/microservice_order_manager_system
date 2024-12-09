@@ -5,7 +5,6 @@ import com.e_commercy.order.viewmodel.order.OrderListVm;
 import com.e_commercy.order.viewmodel.order.OrderPostVm;
 import com.e_commercy.order.viewmodel.order.OrderVm;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

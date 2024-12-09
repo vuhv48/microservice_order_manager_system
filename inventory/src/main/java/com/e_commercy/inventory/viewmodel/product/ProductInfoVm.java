@@ -4,7 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record ProductInfoVm(
-        long id,
+        Long id,
         String name,
         String sku,
         boolean existInWh

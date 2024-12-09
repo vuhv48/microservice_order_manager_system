@@ -1,0 +1,5 @@
+http://localhost:8080/backoffice/warehouses
+{
+  "name": "Warehouse C",
+  "address": "1236 Warehouse Street"
+}

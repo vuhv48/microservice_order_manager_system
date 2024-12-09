@@ -35,5 +35,6 @@ public class Order {
 
 	@OneToOne(mappedBy = "order", fetch = FetchType.LAZY)
 	private Payment payment;
+	
 
 }
