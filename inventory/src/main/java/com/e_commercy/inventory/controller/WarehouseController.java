@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WarehouseController {
     private final WarehouseService warehouseService;
 
-    @PostMapping("x")
+    @PostMapping("/backoffice/warehouses")
     public ResponseEntity<WarehouseGetVm> createWarehouse( @Valid @RequestBody WarehousePostVm warehousePostVm){
         Warehouse warehouse = warehouseService.create(warehousePostVm);
         return ResponseEntity.status(HttpStatus.CREATED).body(WarehouseGetVm.fromModel(warehouse));

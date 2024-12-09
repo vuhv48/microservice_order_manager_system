@@ -1,5 +1,28 @@
-http://localhost:8080/backoffice/warehouses
+http://localhost:8081/backoffice/warehouses
 {
   "name": "Warehouse C",
   "address": "1236 Warehouse Street"
 }
+
+
+http://localhost:8081/backoffice/stocks
+[
+  {
+    "productId": 5,
+    "warehouseId": 1
+  }
+]
+
+
+PUT
+http://localhost:8081/backoffice/stocks
+{
+  "stockQuantityVms": [
+    {
+      "stockId": 9,
+      "productId": 5,
+      "quantity": 50
+    }
+  ]
+}
+
