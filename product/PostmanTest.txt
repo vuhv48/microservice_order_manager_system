@@ -1,13 +1,21 @@
-http://localhost:8083/backoffice/products?pageNo=0&pageSize=5&product-name=&brand-name=
+
+http://localhost:8083/backoffice/brands
+{
+  "name": "Aplle Inc",
+  "slug": "apple-inc",
+  "isPublished": true
+}
+
+http://localhost:8083/backoffice/upload?file
+trong body chon form-data -> file chon file
 
 
-@PostMapping("/backoffice/products")
+http://localhost:8083/backoffice/products
 {
   "name": "Samsung Galaxy S23",
   "shortDescription": "Latest flagship phone from Samsung",
   "description": "The Samsung Galaxy S23 comes with a 6.1-inch display, Snapdragon 8 Gen 2, and a powerful camera system.",
   "price": 999.99,
-  "stockQuantity": 100,
   "sku": "SGS23-256GB",
   "isPublished": true,
   "isVisibleIndividually": true,
@@ -17,10 +25,8 @@ http://localhost:8083/backoffice/products?pageNo=0&pageSize=5&product-name=&bran
 }
 
 
-http://localhost:8083/backoffice/brands
-{
-  "name": "Aplle Inc",
-  "slug": "apple-inc",
-  "isPublished": true
-}
+
+http://localhost:8083/backoffice/products?pageNo=0&pageSize=5&product-name=&brand-name=
+
+
 

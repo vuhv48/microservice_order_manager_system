@@ -13,7 +13,6 @@ public record ProductPostVm(
         String shortDescription,
         String description,
         Double price,
-        Long stockQuantity,
         String sku,
         boolean isPublished,
         boolean isVisibleIndividually,
