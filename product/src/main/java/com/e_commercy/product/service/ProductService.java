@@ -64,7 +64,6 @@ public class ProductService {
                 .shortDescription(productPostVm.shortDescription())
                 .description(productPostVm.description())
                 .price(productPostVm.price())
-                .stockQuantity(productPostVm.stockQuantity())
                 .sku(productPostVm.sku())
                 .isPublished(productPostVm.isPublished())
                 .isVisibleIndividually(productPostVm.isVisibleIndividually())
@@ -72,11 +71,16 @@ public class ProductService {
         setProductBrand(productPostVm.brandId(), product);
 
         List<ProductImage> productImageList = setProductImages(productPostVm.mediaImageIds(), product);
-        ProductImage productThumbnailImage = setThumbnailImage(productPostVm.thumbnailImageId(), product);
-        product.setThumbnailImage(productThumbnailImage);
+        //ProductImage productThumbnailImage = setThumbnailImage(productPostVm.thumbnailImageId(), product);
+
 
         Product savedProduct = productRepository.saveAndFlush(product);
+        
+        for (ProductImage productImage : productImageList) {
+            productImage.setProduct(savedProduct);
+        }
         productImageRepository.saveAllAndFlush(productImageList);
+        
 
         return ProductVm.fromModel(product);
     }

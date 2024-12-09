@@ -36,9 +36,5 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<ProductImage> productImage;
 
-    //anh chinh
-    @OneToOne
-    @JoinColumn(name = "thumbnail_media_id")
-    private ProductImage thumbnailImage;
 
 }
