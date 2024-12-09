@@ -1,1 +1,1 @@
-Dự án Quản lý Đơn hàng (Order Management System) sẽ bao gồm một số microservices quan trọng, và Order Service là một trong những service chính. Để xây dựng Order Service, bạn cần xác định các bảng cơ sở dữ liệu (database tables) phù hợp để lưu trữ thông tin liên quan đến đơn hàng.
+Dự án Quản lý Đơn hàng (Order Management System) được xây dưng bằng microservices với một số microservice Order Service, Product Service, Inventory Service, Customer Service, Spring security service
